@@ -39,15 +39,15 @@ const login = async () => {
           <div class="card-body p-30">
             <div class="text-center mb-4">
               <h4 class="fs-20 fw-semibold mb-2">Sign In</h4>
-              <p class="fs-14 text-body">
-                Don’t have an account yet?
-                <router-link
-                    to="/sign-up"
-                    class="text-primary text-decoration-none"
-                >
-                  Sign Up
-                </router-link>
-              </p>
+<!--              <p class="fs-14 text-body">-->
+<!--                Don’t have an account yet?-->
+<!--                <router-link-->
+<!--                    to="/sign-up"-->
+<!--                    class="text-primary text-decoration-none"-->
+<!--                >-->
+<!--                  Sign Up-->
+<!--                </router-link>-->
+<!--              </p>-->
             </div>
 
             <div class="form-group mb-4">

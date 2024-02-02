@@ -3,13 +3,13 @@
   <footer class="footer-area card border-0 box-shadow rounded-0">
     <div class="footer-content text-center card-body p-4">
       <p class="fs-14">
-        © <span class="text-primary">CallCraft</span> is Proudly Owned by
+        © <span class="text-primary">Saifa</span>
         <a
-          href="https://envytheme.com/"
+          href="#"
           target="_blank"
           class="text-decoration-none"
         >
-          CallCraft.Inc
+          github patranakamo
         </a>
       </p>
     </div>

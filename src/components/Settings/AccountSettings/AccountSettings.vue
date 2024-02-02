@@ -26,22 +26,22 @@
                 Change Password
               </router-link>
             </li>
-            <li class="mb-1">
-              <router-link
-                to="/connections"
-                class="fs-14 fw-medium text-body text-decoration-none d-block py-2 px-3"
-              >
-                Connections
-              </router-link>
-            </li>
-            <li class="mb-0">
-              <router-link
-                to="/privacy-policy"
-                class="fs-14 fw-medium text-body text-decoration-none d-block py-2 px-3"
-              >
-                Privacy Policy
-              </router-link>
-            </li>
+<!--            <li class="mb-1">-->
+<!--              <router-link-->
+<!--                to="/connections"-->
+<!--                class="fs-14 fw-medium text-body text-decoration-none d-block py-2 px-3"-->
+<!--              >-->
+<!--                Connections-->
+<!--              </router-link>-->
+<!--            </li>-->
+<!--            <li class="mb-0">-->
+<!--              <router-link-->
+<!--                to="/privacy-policy"-->
+<!--                class="fs-14 fw-medium text-body text-decoration-none d-block py-2 px-3"-->
+<!--              >-->
+<!--                Privacy Policy-->
+<!--              </router-link>-->
+<!--            </li>-->
           </ul>
         </div>
       </div>

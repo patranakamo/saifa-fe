@@ -48,22 +48,24 @@
                   </div>
                 </div>
               </li>
-              <li class="d-none d-lg-block d-md-none">
-                <h3 class="mb-0">Dashboard</h3>
-              </li>
-              <li class="ms-lg-3 ms-md-3">
-                <form class="src-form position-relative">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search here..."
-                  />
-                  <vue-feather
-                    type="search"
-                    class="position-absolute top-50 start-0 translate-middle-y"
-                  ></vue-feather>
-                </form>
-              </li>
+
+<!--              <li class="d-none d-lg-block d-md-none">-->
+<!--                <h3 class="mb-0">Dashboard</h3>-->
+<!--              </li>-->
+<!--              <li class="ms-lg-3 ms-md-3">-->
+<!--                <form class="src-form position-relative">-->
+<!--                  <input-->
+<!--                    type="text"-->
+<!--                    class="form-control"-->
+<!--                    placeholder="Search here..."-->
+<!--                  />-->
+<!--                  <vue-feather-->
+<!--                    type="search"-->
+<!--                    class="position-absolute top-50 start-0 translate-middle-y"-->
+<!--                  ></vue-feather>-->
+<!--                </form>-->
+<!--              </li>-->
+
             </ul>
           </div>
         </div>
@@ -92,92 +94,92 @@
 <!--                </div>-->
 <!--              </li>-->
 
-              <li>
-                <div class="dropdown mail">
-                  <button
-                    class="btn btn-secondary border-0 p-0 position-relative"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <vue-feather type="phone"></vue-feather>
-                    <span
-                      class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
-                    >
-                      0
-                    </span>
-                  </button>
-                  <div
-                    class="dropdown-menu dropdown-lg p-0 rounded-10 border-0 box-shadow"
-                  >
-                    <h6
-                      class="dropdown-item-text m-0 py-3 border-bottom d-flex justify-content-between align-items-center"
-                    >
-                      Event History
-                      <button
-                        class="border-0 fw-norma bg-transparent text-white"
-                      >
+<!--              <li>-->
+<!--                <div class="dropdown mail">-->
+<!--                  <button-->
+<!--                    class="btn btn-secondary border-0 p-0 position-relative"-->
+<!--                    type="button"-->
+<!--                    data-bs-toggle="dropdown"-->
+<!--                    aria-expanded="false"-->
+<!--                  >-->
+<!--                    <vue-feather type="phone"></vue-feather>-->
+<!--                    <span-->
+<!--                      class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"-->
+<!--                    >-->
+<!--                      0-->
+<!--                    </span>-->
+<!--                  </button>-->
+<!--                  <div-->
+<!--                    class="dropdown-menu dropdown-lg p-0 rounded-10 border-0 box-shadow"-->
+<!--                  >-->
+<!--                    <h6-->
+<!--                      class="dropdown-item-text m-0 py-3 border-bottom d-flex justify-content-between align-items-center"-->
+<!--                    >-->
+<!--                      Event History-->
+<!--                      <button-->
+<!--                        class="border-0 fw-norma bg-transparent text-white"-->
+<!--                      >-->
 
-                      </button>
-                    </h6>
+<!--                      </button>-->
+<!--                    </h6>-->
 
-                    <div class="notification-menu scroll-bar h-400">
-                      <div class="dropdown-item py-3">
-                        <small class="float-end text-body ps-2">
-                          122 min ago
-                        </small>
-                        <div class="d-flex align-items-center">
-                          <div
-                              class="avatar-md rounded-circle text-center flex-shrink-0"
-                          >
-                            <vue-feather type="user-check"></vue-feather>
-                          </div>
-                          <div class="flex-grow-1 ms-2 text-truncate">
-                            <h6 class="my-0 fw-medium text-dark fs-14">
-                              Last Login
-                            </h6>
-                            <small class="text-body mb-0">
-                              -- {{this.lastLogintime}}
-                              23 Dec 2023
-                            </small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+<!--                    <div class="notification-menu scroll-bar h-400">-->
+<!--                      <div class="dropdown-item py-3">-->
+<!--                        <small class="float-end text-body ps-2">-->
+<!--                          122 min ago-->
+<!--                        </small>-->
+<!--                        <div class="d-flex align-items-center">-->
+<!--                          <div-->
+<!--                              class="avatar-md rounded-circle text-center flex-shrink-0"-->
+<!--                          >-->
+<!--                            <vue-feather type="user-check"></vue-feather>-->
+<!--                          </div>-->
+<!--                          <div class="flex-grow-1 ms-2 text-truncate">-->
+<!--                            <h6 class="my-0 fw-medium text-dark fs-14">-->
+<!--                              Last Login-->
+<!--                            </h6>-->
+<!--                            <small class="text-body mb-0">-->
+<!--                              &#45;&#45; {{this.lastLogintime}}-->
+<!--                              23 Dec 2023-->
+<!--                            </small>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
 
-                    <div class="notification-menu scroll-bar h-400">
-                      <div class="dropdown-item py-3">
-                        <small class="float-end text-body ps-2">
-                          1 min ago
-                        </small>
-                        <div class="d-flex align-items-center">
-                          <div
-                            class="avatar-md rounded-circle text-center flex-shrink-0"
-                          >
-                            <vue-feather type="phone-forwarded"></vue-feather>
-                          </div>
-                          <div class="flex-grow-1 ms-2 text-truncate">
-                            <h6 class="my-0 fw-medium text-dark fs-14">
-                             Call to 091-082-23423
-                            </h6>
-                            <small class="text-body mb-0">
-                              Lorem ipsum dolor sit amet consectetur,
-                            </small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+<!--                    <div class="notification-menu scroll-bar h-400">-->
+<!--                      <div class="dropdown-item py-3">-->
+<!--                        <small class="float-end text-body ps-2">-->
+<!--                          1 min ago-->
+<!--                        </small>-->
+<!--                        <div class="d-flex align-items-center">-->
+<!--                          <div-->
+<!--                            class="avatar-md rounded-circle text-center flex-shrink-0"-->
+<!--                          >-->
+<!--                            <vue-feather type="phone-forwarded"></vue-feather>-->
+<!--                          </div>-->
+<!--                          <div class="flex-grow-1 ms-2 text-truncate">-->
+<!--                            <h6 class="my-0 fw-medium text-dark fs-14">-->
+<!--                             Call to 091-082-23423-->
+<!--                            </h6>-->
+<!--                            <small class="text-body mb-0">-->
+<!--                              Lorem ipsum dolor sit amet consectetur,-->
+<!--                            </small>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
 
-                    <a href="#"  @click="startLiveCall()">
-                      <div
-                        class="dropdown-item text-center text-white bg-primary py-3 d-block border-0"
-                      >
-                        Start Call SIP (123)
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </li>
+<!--                    <a href="#"  @click="startLiveCall()">-->
+<!--                      <div-->
+<!--                        class="dropdown-item text-center text-white bg-primary py-3 d-block border-0"-->
+<!--                      >-->
+<!--                        Start Call SIP (123)-->
+<!--                      </div>-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </li>-->
 
               <li>
                 <div class="dropdown user-profile">
@@ -212,7 +214,7 @@
                     <li class="me-0">
                       <router-link
                         class="dropdown-item d-flex align-items-center text-body"
-                        to="/profile"
+                        to="/account-settings"
                       >
                         <vue-feather
                           type="user"
@@ -221,18 +223,18 @@
                         <span class="ms-2 text-dark">Profile</span>
                       </router-link>
                     </li>
-                    <li class="me-0">
-                      <router-link
-                        class="dropdown-item d-flex align-items-center text-body"
-                        to="/setting"
-                      >
-                        <vue-feather
-                          type="settings"
-                          class="text-primary"
-                        ></vue-feather>
-                        <span class="ms-2 text-dark">Setting</span>
-                      </router-link>
-                    </li>
+<!--                    <li class="me-0">-->
+<!--                      <router-link-->
+<!--                        class="dropdown-item d-flex align-items-center text-body"-->
+<!--                        to="/setting"-->
+<!--                      >-->
+<!--                        <vue-feather-->
+<!--                          type="settings"-->
+<!--                          class="text-primary"-->
+<!--                        ></vue-feather>-->
+<!--                        <span class="ms-2 text-dark">Setting</span>-->
+<!--                      </router-link>-->
+<!--                    </li>-->
                     <li class="me-0">
                       <router-link
                         class="dropdown-item d-flex align-items-center text-body"
