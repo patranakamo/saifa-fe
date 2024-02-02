@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "image": "browser/chrome.svg",
+    "name": "Google Chrome",
+    "percent": "25"
+  },
+  {
+    "id": 2,
+    "image": "browser/firefox.svg",
+    "name": "Mozilla Firefox",
+    "percent": "15"
+  },
+  {
+    "id": 3,
+    "image": "browser/safari.svg",
+    "name": "Apple Safari",
+    "percent": "18"
+  },
+  {
+    "id": 4,
+    "image": "browser/edge.svg",
+    "name": "Microsoft Edge",
+    "percent": "20"
+  },
+  {
+    "id": 5,
+    "image": "browser/brave.svg",
+    "name": "Brave",
+    "percent": "12"
+  },
+  {
+    "id": 6,
+    "image": "browser/explorer.svg",
+    "name": "Internet Explorer",
+    "percent": "10"
+  }
+]

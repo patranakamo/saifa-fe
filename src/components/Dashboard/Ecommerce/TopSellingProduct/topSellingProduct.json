@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "image": "products/product-1.jpg",
+    "title": "Gold ring with diamonds",
+    "price": "5,206,000",
+    "sales": "548"
+  },
+  {
+    "id": 2,
+    "image": "products/product-2.jpg",
+    "title": "Headphone",
+    "price": "42,075",
+    "sales": "495"
+  },
+  {
+    "id": 3,
+    "image": "products/product-3.jpg",
+    "title": "Hand watch",
+    "price": "51,000",
+    "sales": "425"
+  },
+  {
+    "id": 4,
+    "image": "products/product-4.jpg",
+    "title": "Ruslan sunglass",
+    "price": "35,010",
+    "sales": "389"
+  },
+  {
+    "id": 5,
+    "image": "products/product-5.jpg",
+    "title": "Smart phone",
+    "price": "3,612,000",
+    "sales": "301"
+  },
+  {
+    "id": 6,
+    "image": "products/product-6.jpg",
+    "title": "Soft cushion armchair",
+    "price": "1,032,500",
+    "sales": "295"
+  },
+  {
+    "id": 7,
+    "image": "products/product-7.jpg",
+    "title": "Black dslr camera",
+    "price": "8,050,000",
+    "sales": "230"
+  },
+  {
+    "id": 8,
+    "image": "products/product-8.jpg",
+    "title": "Drum set",
+    "price": "300,000",
+    "sales": "120"
+  },
+  {
+    "id": 9,
+    "image": "products/product-9.jpg",
+    "title": "Gold ring in a box",
+    "price": "535,500",
+    "sales": "85"
+  },
+  {
+    "id": 10,
+    "image": "products/product-10.jpg",
+    "title": "Tiny sneakers",
+    "price": "4,680",
+    "sales": "72"
+  },
+  {
+    "id": 11,
+    "image": "products/product-1.jpg",
+    "title": "Gold ring with diamonds",
+    "price": "5,206,000",
+    "sales": "548"
+  },
+  {
+    "id": 12,
+    "image": "products/product-2.jpg",
+    "title": "Headphone",
+    "price": "42,075",
+    "sales": "495"
+  },
+  {
+    "id": 13,
+    "image": "products/product-3.jpg",
+    "title": "Hand watch",
+    "price": "51,000",
+    "sales": "425"
+  },
+  {
+    "id": 14,
+    "image": "products/product-4.jpg",
+    "title": "Ruslan sunglass",
+    "price": "35,010",
+    "sales": "389"
+  },
+  {
+    "id": 15,
+    "image": "products/product-5.jpg",
+    "title": "Smart phone",
+    "price": "3,612,000",
+    "sales": "301"
+  },
+  {
+    "id": 16,
+    "image": "products/product-6.jpg",
+    "title": "Soft cushion armchair",
+    "price": "1,032,500",
+    "sales": "295"
+  },
+  {
+    "id": 17,
+    "image": "products/product-7.jpg",
+    "title": "Black dslr camera",
+    "price": "8,050,000",
+    "sales": "230"
+  },
+  {
+    "id": 18,
+    "image": "products/product-8.jpg",
+    "title": "Drum set",
+    "price": "300,000",
+    "sales": "120"
+  },
+  {
+    "id": 19,
+    "image": "products/product-9.jpg",
+    "title": "Gold ring in a box",
+    "price": "535,500",
+    "sales": "85"
+  },
+  {
+    "id": 20,
+    "image": "products/product-10.jpg",
+    "title": "Tiny sneakers",
+    "price": "4,680",
+    "sales": "72"
+  }
+]

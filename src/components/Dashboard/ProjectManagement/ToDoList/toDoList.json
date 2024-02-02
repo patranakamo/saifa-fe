@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "Hotel Management System",
+    "assignedTo": "Terry Bourque",
+    "class": "text-primary",
+    "status": "On Process",
+    "deadline": "Sep 02, 2023"
+  },
+  {
+    "id": 2,
+    "title": "Engineering Lite Touch",
+    "assignedTo": "Raymond Scruggs",
+    "class": "text-danger",
+    "status": "Urgent",
+    "deadline": "Sep 03, 2023"
+  },
+  {
+    "id": 3,
+    "title": "Python Upgrade",
+    "assignedTo": "Charles",
+    "class": "text-success",
+    "status": "Active",
+    "deadline": "Sep 04, 2023"
+  },
+  {
+    "id": 4,
+    "title": "Construction Project Monitoring",
+    "assignedTo": "Allen Barnes",
+    "class": "text-primary",
+    "status": "On Process",
+    "deadline": "Sep 05, 2023"
+  },
+  {
+    "id": 5,
+    "title": "Hotel Management System",
+    "assignedTo": "Terry Bourque",
+    "class": "text-primary",
+    "status": "On Process",
+    "deadline": "Sep 06, 2023"
+  },
+  {
+    "id": 6,
+    "title": "Engineering Lite Touch",
+    "assignedTo": "Raymond Scruggs",
+    "class": "text-danger",
+    "status": "Urgent",
+    "deadline": "Sep 07, 2023"
+  },
+  {
+    "id": 7,
+    "title": "Python Upgrade",
+    "assignedTo": "Charles Aguilar",
+    "class": "text-success",
+    "status": "Urgent",
+    "deadline": "Sep 08, 2023"
+  },
+  {
+    "id": 8,
+    "title": "Construction Project Monitoring",
+    "assignedTo": "Allen Barnes",
+    "class": "text-primary",
+    "status": "On Process",
+    "deadline": "Sep 09, 2023"
+  }
+]

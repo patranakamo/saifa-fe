@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "link": "google.com",
+    "bgRgbColor": "rgba(234, 67, 53, 0.1)",
+    "color": "#EA4335",
+    "percent": "40",
+    "visits": "21,886"
+  },
+  {
+    "id": 2,
+    "link": "facebook.com",
+    "bgRgbColor": "rgba(59, 89, 152, 0.1)",
+    "color": "#3b5998",
+    "percent": "25",
+    "visits": "13,679"
+  },
+  {
+    "id": 3,
+    "link": "twitter.com",
+    "bgRgbColor": "rgba(29, 161, 242, 0.1)",
+    "color": "#1da1f2",
+    "percent": "12",
+    "visits": "6,566"
+  },
+  {
+    "id": 4,
+    "link": "linkedin.com",
+    "bgRgbColor": "rgba(0, 119, 181, 0.1)",
+    "color": "#0077b5",
+    "percent": "8",
+    "visits": "4,377"
+  },
+  {
+    "id": 5,
+    "link": "github.com",
+    "bgRgbColor": "rgba(51, 51, 51, 0.1)",
+    "color": "#333333",
+    "percent": "15",
+    "visits": "8,207"
+  },
+  {
+    "id": 6,
+    "link": "youtube.com",
+    "bgRgbColor": "rgba(234, 67, 53, 0.1)",
+    "color": "#f31919",
+    "percent": "15",
+    "visits": "8,207"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "flag": "flag/united-states-of-america.png",
+    "name": "United States",
+    "progress": "80",
+    "bgColor": "bg-primary",
+    "revenue": "9514"
+  },
+  {
+    "id": 2,
+    "flag": "flag/china.png",
+    "name": "China",
+    "progress": "70",
+    "bgColor": "bg-warning",
+    "revenue": "7514"
+  },
+  {
+    "id": 3,
+    "flag": "flag/australia.png",
+    "name": "Australia",
+    "progress": "50",
+    "bgColor": "bg-danger",
+    "revenue": "5414"
+  },
+  {
+    "id": 4,
+    "flag": "flag/brazil.png",
+    "name": "Brazil",
+    "progress": "85",
+    "bgColor": "bg-success",
+    "revenue": "6754"
+  },
+  {
+    "id": 5,
+    "flag": "flag/united-states-of-america.png",
+    "name": "United States",
+    "progress": "80",
+    "bgColor": "bg-primary",
+    "revenue": "9514"
+  },
+  {
+    "id": 6,
+    "flag": "flag/china.png",
+    "name": "China",
+    "progress": "70",
+    "bgColor": "bg-warning",
+    "revenue": "7514"
+  },
+  {
+    "id": 7,
+    "flag": "flag/australia.png",
+    "name": "Australia",
+    "progress": "50",
+    "bgColor": "bg-danger",
+    "revenue": "5414"
+  },
+  {
+    "id": 8,
+    "flag": "flag/brazil.png",
+    "name": "Brazil",
+    "progress": "85",
+    "bgColor": "bg-success",
+    "revenue": "6754"
+  }
+]

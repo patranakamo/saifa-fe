@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Chester Burress",
+    "rating": 5.0,
+    "customerID": "#75368",
+    "image": "user/user-15.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Sharon Andrews",
+    "rating": 5.0,
+    "customerID": "#15975",
+    "image": "user/user-16.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Steven Grant",
+    "rating": 4.8,
+    "customerID": "#25846",
+    "image": "user/user-17.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Morgan Covington",
+    "rating": 4.7,
+    "customerID": "#35715",
+    "image": "user/user-18.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Rusty Thompson",
+    "rating": 4.5,
+    "customerID": "#95175",
+    "image": "user/user-19.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Chester Burress",
+    "rating": 5.0,
+    "customerID": "#75368",
+    "image": "user/user-15.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Sharon Andrews",
+    "rating": 5.0,
+    "customerID": "#15975",
+    "image": "user/user-16.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Steven Grant",
+    "rating": 4.8,
+    "customerID": "#25846",
+    "image": "user/user-17.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Morgan Covington",
+    "rating": 4.7,
+    "customerID": "#35715",
+    "image": "user/user-18.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Rusty Thompson",
+    "rating": 4.5,
+    "customerID": "#95175",
+    "image": "user/user-19.jpg"
+  }
+]

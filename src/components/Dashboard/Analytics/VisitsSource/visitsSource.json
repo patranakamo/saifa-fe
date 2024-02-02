@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "icon": "key",
+    "title": "Direct Source",
+    "visits": "17,746",
+    "percent": "25"
+  },
+  {
+    "id": 2,
+    "icon": "share-2",
+    "title": "Social Networks",
+    "visits": "10,647",
+    "percent": "15"
+  },
+  {
+    "id": 3,
+    "icon": "mail",
+    "title": "Email Newsletter",
+    "visits": "12,777",
+    "percent": "18"
+  },
+  {
+    "id": 4,
+    "icon": "repeat",
+    "title": "Referrals",
+    "visits": "14,196",
+    "percent": "20"
+  },
+  {
+    "id": 5,
+    "icon": "life-buoy",
+    "title": "Other",
+    "visits": "8,518",
+    "percent": "12"
+  }
+]

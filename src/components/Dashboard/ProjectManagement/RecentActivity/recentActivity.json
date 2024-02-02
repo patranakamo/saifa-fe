@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "date": "20 Sep, 2023",
+    "time": "20 min",
+    "description": "Assigned as director of project nursery management system"
+  },
+  {
+    "id": 2,
+    "date": "20 Sep, 2023",
+    "time": "50 min",
+    "description": "Awaiting review from client after project update"
+  },
+  {
+    "id": 3,
+    "date": "19 Sep, 2023",
+    "time": "1 day",
+    "description": "Estimate the full budget of the project and take customer feedback"
+  },
+  {
+    "id": 4,
+    "date": "18 Sep, 2023",
+    "time": "2 day",
+    "description": "How many days to wait to get the refund of the project"
+  },
+  {
+    "id": 5,
+    "date": "16 Sep, 2023",
+    "time": "4 day",
+    "description": "Discuss with the customer what kind of benefits will be provided in a project"
+  },
+  {
+    "id": 6,
+    "date": "14 Sep, 2023",
+    "time": "6 day",
+    "description": "Archived all the files for the construction project monitoring"
+  }
+]
