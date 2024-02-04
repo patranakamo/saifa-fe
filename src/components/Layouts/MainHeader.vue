@@ -49,23 +49,6 @@
                 </div>
               </li>
 
-<!--              <li class="d-none d-lg-block d-md-none">-->
-<!--                <h3 class="mb-0">Dashboard</h3>-->
-<!--              </li>-->
-<!--              <li class="ms-lg-3 ms-md-3">-->
-<!--                <form class="src-form position-relative">-->
-<!--                  <input-->
-<!--                    type="text"-->
-<!--                    class="form-control"-->
-<!--                    placeholder="Search here..."-->
-<!--                  />-->
-<!--                  <vue-feather-->
-<!--                    type="search"-->
-<!--                    class="position-absolute top-50 start-0 translate-middle-y"-->
-<!--                  ></vue-feather>-->
-<!--                </form>-->
-<!--              </li>-->
-
             </ul>
           </div>
         </div>
@@ -75,113 +58,8 @@
             <ul
               class="right-header-content list-unstyled d-flex justify-content-lg-end justify-content-md-end justify-content-center align-items-center mb-0 ps-0"
             >
-<!--              <li>-->
-<!--                <div class="dropdown date">-->
-<!--                  <button-->
-<!--                    class="btn bg-transparent p-0 border-0 p-0 position-relative badge"-->
-<!--                    type="button"-->
-<!--                    data-bs-toggle="dropdown"-->
-<!--                    aria-expanded="false"-->
-<!--                  >-->
-<!--                    <vue-feather class="t-0" type="calendar"></vue-feather>-->
-<!--                  </button>-->
-<!--                  <div class="dropdown-menu dropdown-lg p-0 rounded-0 border-0">-->
-<!--                    <div class="today-date">-->
-<!--                      <span class="fw-medium">{{ formattedDate }}</span>-->
-<!--                      <vue-feather type="calendar"></vue-feather>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </li>-->
 
-<!--              <li>-->
-<!--                <div class="dropdown mail">-->
-<!--                  <button-->
-<!--                    class="btn btn-secondary border-0 p-0 position-relative"-->
-<!--                    type="button"-->
-<!--                    data-bs-toggle="dropdown"-->
-<!--                    aria-expanded="false"-->
-<!--                  >-->
-<!--                    <vue-feather type="phone"></vue-feather>-->
-<!--                    <span-->
-<!--                      class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"-->
-<!--                    >-->
-<!--                      0-->
-<!--                    </span>-->
-<!--                  </button>-->
-<!--                  <div-->
-<!--                    class="dropdown-menu dropdown-lg p-0 rounded-10 border-0 box-shadow"-->
-<!--                  >-->
-<!--                    <h6-->
-<!--                      class="dropdown-item-text m-0 py-3 border-bottom d-flex justify-content-between align-items-center"-->
-<!--                    >-->
-<!--                      Event History-->
-<!--                      <button-->
-<!--                        class="border-0 fw-norma bg-transparent text-white"-->
-<!--                      >-->
-
-<!--                      </button>-->
-<!--                    </h6>-->
-
-<!--                    <div class="notification-menu scroll-bar h-400">-->
-<!--                      <div class="dropdown-item py-3">-->
-<!--                        <small class="float-end text-body ps-2">-->
-<!--                          122 min ago-->
-<!--                        </small>-->
-<!--                        <div class="d-flex align-items-center">-->
-<!--                          <div-->
-<!--                              class="avatar-md rounded-circle text-center flex-shrink-0"-->
-<!--                          >-->
-<!--                            <vue-feather type="user-check"></vue-feather>-->
-<!--                          </div>-->
-<!--                          <div class="flex-grow-1 ms-2 text-truncate">-->
-<!--                            <h6 class="my-0 fw-medium text-dark fs-14">-->
-<!--                              Last Login-->
-<!--                            </h6>-->
-<!--                            <small class="text-body mb-0">-->
-<!--                              &#45;&#45; {{this.lastLogintime}}-->
-<!--                              23 Dec 2023-->
-<!--                            </small>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-
-<!--                    <div class="notification-menu scroll-bar h-400">-->
-<!--                      <div class="dropdown-item py-3">-->
-<!--                        <small class="float-end text-body ps-2">-->
-<!--                          1 min ago-->
-<!--                        </small>-->
-<!--                        <div class="d-flex align-items-center">-->
-<!--                          <div-->
-<!--                            class="avatar-md rounded-circle text-center flex-shrink-0"-->
-<!--                          >-->
-<!--                            <vue-feather type="phone-forwarded"></vue-feather>-->
-<!--                          </div>-->
-<!--                          <div class="flex-grow-1 ms-2 text-truncate">-->
-<!--                            <h6 class="my-0 fw-medium text-dark fs-14">-->
-<!--                             Call to 091-082-23423-->
-<!--                            </h6>-->
-<!--                            <small class="text-body mb-0">-->
-<!--                              Lorem ipsum dolor sit amet consectetur,-->
-<!--                            </small>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-
-<!--                    <a href="#"  @click="startLiveCall()">-->
-<!--                      <div-->
-<!--                        class="dropdown-item text-center text-white bg-primary py-3 d-block border-0"-->
-<!--                      >-->
-<!--                        Start Call SIP (123)-->
-<!--                      </div>-->
-<!--                    </a>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </li>-->
-
-              <li>
+              <li >
                 <div class="dropdown user-profile">
                   <a
                     href="#"
@@ -189,23 +67,28 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <div class="flex-shrink-0">
-                      <img
-                        class="rounded-circle"
-                        src="../../assets/images/user/user-1.jpg"
-                        alt="user-1"
-                      />
+                    <div class="flex-shrink-0" style="margin-right: 20px">
+<!--                      <img-->
+<!--                        class="rounded-circle"-->
+<!--                        src="../../assets/images/user/user-1.jpg"-->
+<!--                        alt="user-1"-->
+<!--                      />-->
+                      <vue-feather type="user" class="menu-icon tf-icons"></vue-feather>
                     </div>
-                    <div class="flex-grow-1 ms-3">
+                    <div class="flex-grow-1 ms-3" >
                       <div
                         class="d-flex align-items-center justify-content-between"
                       >
-                        <div class="me-5 d-none d-lg-block">
-                          <h3>Robert Ellsworth</h3>
-                          <span>Admin</span>
+                        <div v-if="userId" class="me-5 d-none d-lg-block">
+                          <h3> {{userName}}</h3>
+                          <span>role : Admin</span>
+                        </div>
+                        <div v-else class="me-5 d-none d-lg-block">
+                          <h3>Need Login {{userId}}</h3>
+                          <span>role : -</span>
                         </div>
 
-                        <i class="ri-arrow-down-s-line"></i>
+                        <i v-if="userId" class="ri-arrow-down-s-line"></i>
                       </div>
                     </div>
                   </a>
@@ -213,8 +96,9 @@
                   <ul class="dropdown-menu border-0 box-shadow rounded-0">
                     <li class="me-0">
                       <router-link
+                          v-if="userId"
+                          :to="{name:'UserDetails', params: { id: userId } }"
                         class="dropdown-item d-flex align-items-center text-body"
-                        to="/account-settings"
                       >
                         <vue-feather
                           type="user"
@@ -223,18 +107,6 @@
                         <span class="ms-2 text-dark">Profile</span>
                       </router-link>
                     </li>
-<!--                    <li class="me-0">-->
-<!--                      <router-link-->
-<!--                        class="dropdown-item d-flex align-items-center text-body"-->
-<!--                        to="/setting"-->
-<!--                      >-->
-<!--                        <vue-feather-->
-<!--                          type="settings"-->
-<!--                          class="text-primary"-->
-<!--                        ></vue-feather>-->
-<!--                        <span class="ms-2 text-dark">Setting</span>-->
-<!--                      </router-link>-->
-<!--                    </li>-->
                     <li class="me-0">
                       <router-link
                         class="dropdown-item d-flex align-items-center text-body"
@@ -261,6 +133,7 @@
 import { defineComponent, ref, onMounted } from "vue";
 import stateStore from "../../utils/store";
 import {useAccountStore} from '@/stores/account'
+import { watchEffect } from 'vue';
 
 export default defineComponent({
   name: "MainHeader",
@@ -272,8 +145,19 @@ export default defineComponent({
     const showCloseBtn = ref(false);
     const lastLoginTime = ref(0);
     const formattedDate = ref("");
-    let lastLogintime = ref(0);
-    lastLogintime = localAccountStore.lastLoginTime
+    const lastLogintime = ref(0);
+    const userId = ref("");
+    const userName = ref("");
+    const role = ref("");
+
+    lastLogintime.value = localAccountStore.lastLoginTime
+
+    watchEffect(() => {
+      userId.value = localAccountStore.userId;
+      userName.value = localAccountStore.userName;
+      role.value = localAccountStore.role;
+    });
+
     // Methods
     const toggleButtonVisibility = (buttonId) => {
       if (buttonId === "openBtn") {
@@ -319,6 +203,9 @@ export default defineComponent({
 
     // Return all reactive properties and methods
     return {
+      userId,
+      userName,
+      role,
       lastLogintime,
       showOpenBtn,
       showCloseBtn,
@@ -326,7 +213,7 @@ export default defineComponent({
       toggleButtonVisibility,
       startLiveCall,
       stateStoreInstance,
-      formattedDate,
+      formattedDate
     };
   },
 });

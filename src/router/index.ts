@@ -5,8 +5,8 @@ import StarterPage from "../pages/StarterPage.vue";
 import ErrorPage from "../pages/ErrorPage.vue";
 import SignInPage from "../pages/Authentication/SignInPage.vue";
 import LogOutPage from "../pages/Authentication/LogOutPage.vue";
-import AccountSettingsPage from "../pages/Setting/AccountSettingsPage.vue";
-import ChangePasswordPage from "../pages/Setting/ChangePasswordPage.vue";
+// import AccountSettingsPage from "../pages/Setting/AccountSettingsPage.vue";
+// import ChangePasswordPage from "../pages/Setting/ChangePasswordPage.vue";
 import WebhookRouting from "../pages/call/WebhookRouting.vue";
 import ShopSetup from "../pages/call/ShopSetup.vue";
 import TokenList from "../pages/call/TokenPage.vue";
@@ -39,16 +39,16 @@ const routes = [
         name: "LogOutPage",
         component: LogOutPage,
     },
-    {
-        path: "/account-settings",
-        name: "AccountSettingsPage",
-        component: AccountSettingsPage,
-    },
-    {
-        path: "/change-password",
-        name: "ChangePasswordPage",
-        component: ChangePasswordPage,
-    },
+    // {
+    //     path: "/account-settings",
+    //     name: "AccountSettingsPage",
+    //     component: AccountSettingsPage,
+    // },
+    // {
+    //     path: "/change-password",
+    //     name: "ChangePasswordPage",
+    //     component: ChangePasswordPage,
+    // },
     {
         path: "/webhook-routing",
         name: "WebhookRouting",

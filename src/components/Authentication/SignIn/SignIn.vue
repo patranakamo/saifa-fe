@@ -11,7 +11,7 @@ import {useRouter} from 'vue-router';
 const router = useRouter()
 
 const localAccountStore = useAccountStore()
-const username = ref('')
+const username = ref('admin')
 const password = ref('')
 
 // localAccountStore.checkAuth()
@@ -51,7 +51,7 @@ const login = async () => {
             </div>
 
             <div class="form-group mb-4">
-              <label class="label">username</label>
+              <label class="label">Username</label>
               <input
                   v-model="username"
                   type="text"
@@ -60,7 +60,7 @@ const login = async () => {
               />
             </div>
             <div class="form-group mb-4">
-              <label class="label">Your Password</label>
+              <label class="label">Password</label>
               <div class="password-wrapper position-relative">
                 <input
                     v-model="password"

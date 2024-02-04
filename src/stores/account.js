@@ -9,7 +9,8 @@ export const useAccountStore = defineStore('account', {
     state: () => ({
         alreadyLogin: false,
         userId: "",
-        role: 'not_login',
+        role: '',
+        userName: '',
         lastLoginTime: 0,
     }),
     actions: {
@@ -49,6 +50,7 @@ export const useAccountStore = defineStore('account', {
                 if (loginD.message && !loginD.error_code) {
                     await this.checkAuth()
                     toastr.success('login success');
+                    this.userName = username
                     return true;
                     //push to index page
                 } else {
@@ -70,7 +72,11 @@ export const useAccountStore = defineStore('account', {
                 // console.log(returnData.data.auth)
                 if (returnData.data.auth && returnData.data.auth.userUid !== -1) {
                     this.userId = returnData.data.auth.userUid
-                    this.role = 'normal_user'
+                    if(this.userName != 'admin')
+                        this.role = 'Normal User'
+                    else
+                        this.role = 'Admin'
+
                     this.lastLoginTime = returnData.data.auth.lastLoginTime
                     return true
                 } else {

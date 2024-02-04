@@ -23,14 +23,14 @@
               <thead>
               <tr>
                 <th class="text-dark fw-medium pt-2 pb-2 fs-14 ps-0" scope="col">
-                  UserId
+                  Username
                 </th>
 
+<!--                <th class="text-dark fw-medium pt-2 pb-2 fs-14" scope="col">-->
+<!--                  Verified-->
+<!--                </th>-->
                 <th class="text-dark fw-medium pt-2 pb-2 fs-14" scope="col">
-                  Verified
-                </th>
-                <th class="text-dark fw-medium pt-2 pb-2 fs-14" scope="col">
-                  Update
+                  Last Update
                 </th>
                 <th class="text-dark fw-medium pt-2 pb-2 fs-14" scope="col">
                   Last Login
@@ -48,10 +48,17 @@
               <tr v-for="(row, index) in userStore.list" :key="index">
                 <!--                <vue v-if="row.user_id">-->
                 <td class="">
-                  <router-link :to="{name:'UserDetails', params: { id: row.user_id } }">
-                    <vue-feather type="user" class="menu-icon tf-icons"></vue-feather>
-                    {{ row.username }}
-                  </router-link>
+                  <div v-if="row.username!=='admin'">
+                    <router-link :to="{name:'UserDetails', params: { id: row.user_id } }">
+                      <vue-feather type="user" class="menu-icon tf-icons"></vue-feather>
+                      {{ row.username }}
+                    </router-link>
+                  </div>
+                  <div v-else>
+                    <vue-feather type="user-plus" class="menu-icon tf-icons"></vue-feather>
+                   Admin user
+                  </div>
+
                 </td>
 
                 <!--                <td class="">-->
@@ -66,12 +73,12 @@
                 <!--                </td>-->
 
 
-                <td class=" text-body" :class="{
-                  'text-danger': row.is_verified === 'no',
-                  'text-success': row.is_verified === 'yes'
-                }">
-                  {{ row.is_verified }}
-                </td>
+<!--                <td class=" text-body" :class="{-->
+<!--                  'text-danger': row.is_verified === 'no',-->
+<!--                  'text-success': row.is_verified === 'yes'-->
+<!--                }">-->
+<!--                  {{ row.is_verified }}-->
+<!--                </td>-->
 
                 <td class="" v-if="!row.update_at || row.update_at < 1">
                   <span class="text-body">Never</span>
@@ -88,12 +95,17 @@
                 </td>
 
 
-                <td class=" text-body" :class="{
+                <td v-if="row.username!=='admin'" class=" text-body" :class="{
                   'text-danger': row.status === 'inactive',
                   'text-success': row.status === 'active'
                 }">
-                  {{ row.status }}
+                    {{ row.status }}
                 </td>
+                <td v-else class=" text-body" >
+                  -
+                </td>
+
+
                 <td v-if="!row.is_admin" class="">
                   <a
                       class="border-btn default-btn text-decoration-none py-2 px-3"
