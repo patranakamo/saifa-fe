@@ -54,9 +54,9 @@
 <!--          </ul>-->
 <!--        </li>-->
 
-<!--        <li class="menu-header small text-uppercase">-->
-<!--          <span class="menu-header-text fs-14 text-white">Call</span>-->
-<!--        </li>-->
+        <div class="small head-menu">
+          <div class="menu-header-text fs-14 text-white">Shop</div>
+        </div>
 
         <li class="menu-item">
           <router-link :to="{name:'ProjectManagementPage'}" class="menu-link">
@@ -64,7 +64,23 @@
             <span class="title">Dashboard</span>
           </router-link>
         </li>
+        <li class="menu-item">
+          <router-link :to="{name:'InvoiceList'}" class="menu-link">
+            <vue-feather type="shopping-bag" class="menu-icon tf-icons"></vue-feather>
+            <span class="title">Invoice</span>
+          </router-link>
+        </li>
 
+        <div class="small head-menu">
+          <div class="menu-header-text fs-14 text-white">Setup</div>
+        </div>
+
+        <li class="menu-item">
+          <router-link :to="{name:'WebhookRouting'}" class="menu-link">
+            <vue-feather type="shopping-cart" class="menu-icon tf-icons"></vue-feather>
+            <span class="title">Shop Setup</span>
+          </router-link>
+        </li>
         <li class="menu-item">
           <router-link :to="{name:'WebhookRouting'}" class="menu-link">
             <vue-feather type="settings" class="menu-icon tf-icons"></vue-feather>
@@ -83,12 +99,10 @@
             <span class="title">User</span>
           </router-link>
         </li>
-        <li class="menu-item">
-          <router-link :to="{name:'InvoiceList'}" class="menu-link">
-            <vue-feather type="shopping-bag" class="menu-icon tf-icons"></vue-feather>
-            <span class="title">Invoice</span>
-          </router-link>
-        </li>
+
+        <div class="small head-menu">
+          <div class="menu-header-text fs-14 text-white"></div>
+        </div>
 
         <li class="menu-item pb-85">
           <router-link to="/log-out" class="menu-link">
@@ -106,3 +120,8 @@ export default {
   name: "MainSidebar",
 };
 </script>
+<style scoped>
+.head-menu{
+  padding: 10px;padding-bottom: 20px;
+}
+</style>

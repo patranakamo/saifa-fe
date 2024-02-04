@@ -62,10 +62,10 @@
                   ID
                 </th>
                 <th class="text-dark fw-medium pt-2 pb-2 fs-14" scope="col">
-                  StoreName
+                  Shop Name
                 </th>
                 <th class="text-dark fw-medium pt-2 pb-2 fs-14" scope="col">
-                  amount
+                  Amount
                 </th>
                 <th class="text-dark fw-medium pt-2 pb-2 fs-14" scope="col">
                   Status
@@ -89,7 +89,7 @@
                   {{ row.address_name }}
                 </td>
                 <td class="ps-0">
-                  {{ row.amount }}
+                  {{ row.amount }} {{ row.currency ?? 'BTC-SAT' }}
                 </td>
                 <!--                <td class="ps-0">-->
                 <!--                  {{ localInvoiceStore.formatDateTime(row.create_at) }}-->

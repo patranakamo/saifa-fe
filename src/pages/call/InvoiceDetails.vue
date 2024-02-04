@@ -52,7 +52,7 @@
               <ul class="ps-0 mb-0 list-unstyled">
 
                 <li class="li-select d-flex justify-content-between align-items-center mb-4">
-                  <span class="left-details text-body fs-14">Channel :</span>
+                  <span class="left-details text-body fs-14">Shop name :</span>
                   <span class="right-details text-dark fs-14 fw-medium">
                     <select v-model="shopName" class="form-select form-control">
                         <option value="dog_shop">Dog Shop</option>
