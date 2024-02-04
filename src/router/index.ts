@@ -8,6 +8,7 @@ import LogOutPage from "../pages/Authentication/LogOutPage.vue";
 import AccountSettingsPage from "../pages/Setting/AccountSettingsPage.vue";
 import ChangePasswordPage from "../pages/Setting/ChangePasswordPage.vue";
 import WebhookRouting from "../pages/call/WebhookRouting.vue";
+import ShopSetup from "../pages/call/ShopSetup.vue";
 import TokenList from "../pages/call/TokenPage.vue";
 import TokenDetails from "../pages/call/TokenPageDetails.vue";
 import UserList from "../pages/call/UserPage.vue";
@@ -52,6 +53,11 @@ const routes = [
         path: "/webhook-routing",
         name: "WebhookRouting",
         component: WebhookRouting,
+    },
+    {
+        path: "/shop-setup",
+        name: "ShopSetup",
+        component: ShopSetup,
     },
     {
         path: "/tokens",

@@ -76,7 +76,7 @@
         </div>
 
         <li class="menu-item">
-          <router-link :to="{name:'WebhookRouting'}" class="menu-link">
+          <router-link :to="{name:'ShopSetup'}" class="menu-link">
             <vue-feather type="shopping-cart" class="menu-icon tf-icons"></vue-feather>
             <span class="title">Shop Setup</span>
           </router-link>
