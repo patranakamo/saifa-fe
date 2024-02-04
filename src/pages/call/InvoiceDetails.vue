@@ -55,8 +55,11 @@
                   <span class="left-details text-body fs-14">Shop name :</span>
                   <span class="right-details text-dark fs-14 fw-medium">
                     <select v-model="shopName" class="form-select form-control">
-                        <option value="dog_shop">Dog Shop</option>
-                        <option value="tokyo_tower_shop">Tokyo Tower Shop</option>
+                       <option
+                           v-for="(option, index) in localuseConfigStore.inputValues"
+                           :key="index"
+                           :value="option"
+                       > {{ option }} </option>
                     </select>
                   </span>
                 </li>
@@ -145,23 +148,34 @@
 import MainFooter from "../../components/Layouts/MainFooter.vue";
 
 import {usedInvoiceStore} from '@/stores/invoice'
+import {useShopStore} from "@/stores/shop";
 
 const localInvoiceStore = usedInvoiceStore()
+const localuseConfigStore = useShopStore();
+
 import {onMounted, ref} from 'vue'
 import {useRoute} from 'vue-router'
 import QRCode from 'qrcode'
 import toastr from "toastr";
+import {useRouter} from "vue-router/dist/vue-router";
 
+const router = useRouter();
 const qrCodeData = ref('')
 const currency = ref('BTC-SAT')
 const amount = ref(0)
 const route = useRoute()
 const newMode = ref(false)
-const shopName = ref('tokyo_tower_shop')
+const shopName = ref('')
 
 onMounted(async () => {
   if (route.params.id && route.params.id === 'new') {
+    await localuseConfigStore.loadConfig(router)
     newMode.value = true
+
+    if (localuseConfigStore.inputValues && localuseConfigStore.inputValues.length > 0) {
+      shopName.value = localuseConfigStore.inputValues[0]
+    }
+
   } else if (route.params.id && route.params.id !== 'new') {
     await localInvoiceStore.loadInvoice(route.params.id)
     // rows.value = localInvoiceStore.total_count

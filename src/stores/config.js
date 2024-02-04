@@ -4,9 +4,6 @@ import toastr from 'toastr';
 
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 axios.defaults.baseURL = '/v1/';
-//axios.defaults.baseURL = 'http://callcraft.app/v1/';
-// const BEST_URL = 'http://callcraft.app/v1/'
-// axios.defaults.baseURL = 'http://your-test-domain.com';
 export const useConfigStore = defineStore('config',
     {
         state: () => ({
@@ -29,8 +26,6 @@ export const useConfigStore = defineStore('config',
             async loadConfig(router) {
                 try {
                     const returnData = await axios.get(`/config/webhook`)
-                    console.log("load config front end ")
-                    console.log(returnData.data.data.config_data)
                     if (!returnData.data.data.config_data) {
                         toastr.info('no data return after load');
                     }

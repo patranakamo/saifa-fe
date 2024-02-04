@@ -60,12 +60,6 @@ export const usedInvoiceStore = defineStore('invoice', {
                 const result = await axios.get(url)
                 if (result.data.data.invoice) {
                     this.invoice = result.data.data.invoice
-
-                    // this.web_hook = result.data.web_hook_logs
-                    // this.web_hook.forEach(item => {
-                    //     item['time_format'] = this.formatDateTime(item['time'])
-                    //     return item
-                    // });
                     return true;
                 }
 
