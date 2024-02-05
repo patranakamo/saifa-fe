@@ -12,9 +12,9 @@
                   class="d-flex justify-content-between align-items-center cw-273"
                 >
                   <router-link to="/" class="flex-shrink-0">
-                    <div style="width: 123px">
+                    <div style="width: 100px">
                     <img
-                      src="../../assets/images/logo.png"
+                      src="../../assets/images/saifa_log.jpg"
                       class="main-logo"
                       alt="main-logo"
                     />
