@@ -94,17 +94,21 @@
                 <!--                <td class="ps-0">-->
                 <!--                  {{ localInvoiceStore.formatDateTime(row.create_at) }}-->
                 <!--                </td>-->
-                <td class="ps-0" :class="{
+                <td v-if="!row.is_manual_cancel" class="ps-0" :class="{
                   'text-danger': row.status === 'CANCELED',
                   'text-primary': row.status === 'wait',
                   'text-success': row.status === 'payed'
                 }">
                   <span style="text-transform:uppercase;">{{ row.status }}</span>
                 </td>
+                <td v-else class="ps-0 text-danger">
+                  <span style="text-transform:uppercase;">manual cancel</span>
+                </td>
+
                 <td>
                   <a
                       class="border-btn default-btn text-decoration-none py-2 px-3"
-                      v-if="row.status === 'wait'"
+                      v-if="row.status === 'wait' && !row.is_manual_cancel"
                       href="#"
                       @click="cancelInvoice(  row.invoice_id )"
                   >
