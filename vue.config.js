@@ -3,10 +3,10 @@ module.exports = {
   devServer: {
     proxy: {
       '/v1': {
-        target: 'http://callcraft.app/v1/', // URL of your backend server
-        changeOrigin: true, // needed for virtual hosted sites
+        target: '0.0.0.0:9988/v1/',
+        changeOrigin: true,
         pathRewrite: {
-          '^/v1': '' // rewrite path
+          '^/v1': ''
         },
       },
     },
