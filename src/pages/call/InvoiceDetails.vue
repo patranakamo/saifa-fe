@@ -69,8 +69,8 @@
                   <span class="right-details text-dark fs-14 fw-medium">
                     <select v-model="currency" class="form-select form-control">
                         <option value="BTC-SAT">BTC-SAT</option>
-                        <option value="USD">USD</option>
-                        <option value="THB">THB</option>
+                        <option disabled value="USD">USD (not active on this version)</option>
+                        <option disabled value="THB">THB (not active on this version)</option>
                     </select>
                   </span>
                 </li>

@@ -12,7 +12,7 @@
     <MainSidebar />
 
     <router-view />
-    <SettingsOption />
+<!--    <SettingsOption />-->
     <SettingsModal />
   </div>
 </template>
@@ -35,7 +35,7 @@ export default defineComponent({
     //ToastJa,
     MainHeader,
     MainSidebar,
-    SettingsOption,
+    // SettingsOption,
     SettingsModal,
   },
   data() {

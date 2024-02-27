@@ -52,9 +52,11 @@ const login = async () => {
 
             <div class="form-group mb-4">
               <label class="label">Username</label>
+              * for this version only let admin user used the system.
               <input
                   v-model="username"
                   type="text"
+                  disabled
                   class="form-control"
                   placeholder="admin"
               />
