@@ -1,12 +1,12 @@
 <template>
-  <div id="SidebarLightMode" class="sidebar-area">
+  <div id="SidebarLightMode" class="sidebar-area" v-if="localAccountStore.alreadyLogin">
     <div
       id="accordionExample"
       class="layout-menu menu-vertical menu bg-menu-theme scroll-bar active hv-100"
     >
       <div class="menu-inner-shadow"></div>
 
-      <ul class="menu-inner">
+      <ul class="menu-inner" >
 <!--        <li class="menu-item">-->
 <!--          <a-->
 <!--            href="javascript:void(0);"-->
@@ -115,10 +115,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "MainSidebar",
-};
+<script setup>
+import {useAccountStore} from '@/stores/account'
+const localAccountStore = useAccountStore()
+// export default {
+//   name: "MainSidebar",
+// };{
 </script>
 <style scoped>
 .head-menu{

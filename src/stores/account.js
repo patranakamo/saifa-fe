@@ -1,6 +1,7 @@
 import {defineStore} from 'pinia'
 import axios from 'axios';
 import toastr from 'toastr';
+import al from "bootstrap-vue-next";
 
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 axios.defaults.baseURL = '/v1/';
@@ -51,6 +52,7 @@ export const useAccountStore = defineStore('account', {
                     await this.checkAuth()
                     toastr.success('login success');
                     this.userName = username
+                    this.alreadyLogin = true
                     return true;
                     //push to index page
                 } else {
@@ -78,6 +80,7 @@ export const useAccountStore = defineStore('account', {
                         this.role = 'Admin'
 
                     this.lastLoginTime = returnData.data.auth.lastLoginTime
+                    this.alreadyLogin = true
                     return true
                 } else {
                     toastr.info('you are not login yet');

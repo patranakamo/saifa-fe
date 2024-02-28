@@ -2,7 +2,6 @@
 <!--  <PreLoader v-if="isLoading" />-->
 
   <MainHeader />
-<!-- just for test see UI <ToastJa message="sadf" status="fail"></ToastJa>-->
   <div
     :class="[
       'main-content expanded js-container',
@@ -18,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import {defineComponent, watchEffect} from "vue";
 import PreLoader from "./components/Layouts/PreLoader.vue";
 
 import MainHeader from "./components/Layouts/MainHeader.vue";
@@ -26,6 +25,7 @@ import MainSidebar from "./components/Layouts/MainSidebar.vue";
 import SettingsOption from "./components/Layouts/SettingsOption.vue";
 import SettingsModal from "./components/Layouts/SettingsModal.vue";
 import stateStore from "./utils/store";
+import {useAccountStore} from '@/stores/account'
 // import ToastJa from "@/components/ToastJa/ToastJa.vue";
 
 export default defineComponent({
@@ -49,7 +49,11 @@ export default defineComponent({
     // }, 2000);
   },
   setup() {
+    const localAccountStore = useAccountStore()
     const stateStoreInstance = stateStore;
+    watchEffect(() => {
+      stateStoreInstance.open = !localAccountStore.alreadyLogin;
+    });
     return { stateStoreInstance };
   },
 });
