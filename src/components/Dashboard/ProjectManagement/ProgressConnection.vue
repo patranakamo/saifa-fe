@@ -5,25 +5,26 @@
         <div class="card-body p-4">
           <div class="d-flex">
             <div class="flex-grow-1 me-3">
-              <h3 class="fw-medium fs-18">Total Invoice: 334</h3>
+              <h3 class="fw-medium fs-18">Total waiting Invoice: {{invoiceData.totalActiveInvoice}}</h3>
               <span class="text-body">Complete Invoice</span>
-              <h1 class="fw-medium fs-30 mb-3">331</h1>
+              <h1 class="fw-medium fs-30 mb-3">{{invoiceData.totalInvoice}}</h1>
               <div
                 class="progress rounded-0 mb-0 progress-width"
                 role="progressbar"
                 aria-label="Basic example"
-                aria-valuenow="70"
+                :aria-valuenow=invoiceData.totalInvoiceDone
                 aria-valuemin="0"
                 aria-valuemax="100"
                 style="height: 10px; background-color: #f4f6fa; width: 210px"
               >
                 <div
                   class="progress-bar bg-primary rounded-0"
-                  style="width: 70%; height: 10px"
+                  :style="`width: ${invoiceData.percentInvoiceDone}%; height: 10px`"
                 ></div>
               </div>
+
               <p class="fs-12 text-dark lh-1 mt-2">
-                <span class="text-success">70%</span> of the total project is
+                <span class="text-success">{{invoiceData.percentInvoiceDone}}%</span> of the total invoice is
                 complete
               </p>
             </div>
@@ -163,8 +164,40 @@
   height: 178px;
 }
 </style>
-<script>
-export default {
-  name: "ProjectProgress",
-};
+
+<script setup>
+// Import the defineProps function from Vue
+import { defineProps } from 'vue';
+
+// Define your props
+const props = defineProps({
+  invoiceData:Object,
+});
 </script>
+
+<!--<script setup>-->
+<!--import {usedInvoiceStore} from '@/stores/invoice'-->
+<!--import {onMounted, ref} from "vue";-->
+<!--const localInvoiceStore = usedInvoiceStore()-->
+
+<!--const totalInvoice = ref(0)-->
+<!--const totalActiveInvoice = ref(0)-->
+<!--const totalInvoiceDone = ref(100)-->
+
+<!--const loadData = async () => {-->
+<!--  await localInvoiceStore.loadInvoices(10, 1)-->
+<!--  totalInvoice.value = localInvoiceStore.total_count-->
+<!--  totalActiveInvoice.value = localInvoiceStore.total_count_active-->
+<!--  totalInvoiceDone.value = Math.round((totalActiveInvoice.value / totalInvoice.value) * 100);-->
+<!--}-->
+
+<!--onMounted(async () => {-->
+<!--  loadData()-->
+<!--})-->
+
+<!--</script>-->
+<!--<script>-->
+<!--export default {-->
+<!--  name: "ProjectProgress",-->
+<!--};-->
+<!--</script>-->

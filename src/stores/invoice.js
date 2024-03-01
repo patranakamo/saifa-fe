@@ -10,6 +10,8 @@ export const usedInvoiceStore = defineStore('invoice', {
         web_hook: [],
         list: [],
         total_count: 0,
+        total_count_active: 0,
+        total_count_success: 0,
     }),
     actions: {
         formatDateTime(dateTimeStr) {
@@ -121,6 +123,9 @@ export const usedInvoiceStore = defineStore('invoice', {
                         toastr.info('no invoice found.')
                     }
                     this.total_count = list.data.data.count
+                    this.total_count_active = list.data.data.active_count
+                    this.total_count_success = list.data.data.success_count
+
                     return true
                 }
             } catch (error) {

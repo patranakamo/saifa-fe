@@ -2,53 +2,58 @@
   <div class="card border-0 box-shadow border-radius-10 mb-4">
     <div class="card-body p-4">
       <div class="card-title d-flex justify-content-between mb-3">
-        <h3 class="fw-medium fs-18 mb-0">Project Progress</h3>
+        <h3 class="fw-medium fs-18 mb-0">Invoice Status</h3>
 
         <ul class="ps-0 mb-0 list-unstyled legend-list">
-          <li class="text-body mb-1">In Progress</li>
-          <li class="text-body mb-1">Complete</li>
-          <li class="text-body">Not Started</li>
+          <li class="text-body mb-1">Complete (get payment)</li>
+          <li class="text-body mb-1">Active Invoice (waiting)</li>
+          <li class="text-body">Cancel/Fail</li>
         </ul>
       </div>
 
       <div id="project_progress"></div>
       <apexchart
-        type="donut"
-        height="252"
-        :options="projectProgress"
-        :series="project"
+          type="donut"
+          height="252"
+          :options="projectProgress"
+          :series="project"
       ></apexchart>
 
       <ul
-        class="d-flex justify-content-between ps-0 mb-0 list-unstyled progress-list mt-3"
+          class="d-flex justify-content-between ps-0 mb-0 list-unstyled progress-list mt-3"
       >
         <li>
-          <span class="d-block text-body mb-2">In Progress</span>
-          <span class="d-block text-success">60%</span>
+          <span class="d-block text-body mb-2">Complete (get payment)</span>
+          <span class="d-block text-success">{{  this.invoiceData.percentInvoiceDoneSuccess }}%</span>
         </li>
         <li>
-          <span class="d-block text-body mb-2">Not Started</span>
-          <span class="d-block text-warning">25%</span>
+          <span class="d-block text-body mb-2">Active Invoice (waiting)</span>
+          <span class="d-block text-warning">{{  this.invoiceData.percentInvoiceNoDone }}%</span>
         </li>
         <li>
-          <span class="d-block text-body mb-2">Complete</span>
-          <span class="d-block text-danger">15%</span>
+          <span class="d-block text-body mb-2">Cancel/Fail</span>
+          <span class="d-block text-danger">{{  this.invoiceData.percentInvoiceDoneFail }}%</span>
         </li>
       </ul>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script>
+import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "ProjectProgressChart",
+  props: {
+    invoiceData: {
+      type: Object
+    }
+  },
   data: function () {
     return {
-      project: [70, 20, 10],
+      project: [0, 0, 0],
       projectProgress: {
-        labels: ["In Progress", "Complete", "Not Started"],
+        labels: ["Payed Success", "Waiting", "Canceled Invoice"],
         chart: {
           height: 252,
           type: "donut",
@@ -101,16 +106,15 @@ export default defineComponent({
                   fontSize: "18px",
                   color: undefined,
                   offsetY: 8,
-                  // color: "#2ED47E",
                   fontWeight: 500,
-                  formatter: function (val: string) {
+                  formatter: function (val) {
                     return val + "%";
                   },
                 },
                 total: {
                   show: true,
                   showAlways: true,
-                  label: "Total Progress",
+                  label: "Invoice Status",
                   fontSize: "14px",
                   fontFamily: "Inter",
                   fontWeight: 500,
@@ -123,6 +127,27 @@ export default defineComponent({
         colors: ["#2ED47E", "#FFBA5C", "#ED4C5C"],
       },
     };
+  },
+  mounted() {
+    this.updateProjectData();
+  },
+  methods: {
+    updateProjectData() {
+      this.project = [
+        this.invoiceData.percentInvoiceDoneSuccess || 0,
+        this.invoiceData.percentInvoiceNoDone || 0,
+        this.invoiceData.percentInvoiceDoneFail || 0,
+      ];
+    }
+  },
+  watch: {
+    invoiceData: {
+      deep: true,
+      immediate: true,
+      handler() {
+        this.updateProjectData();
+      },
+    },
   },
 });
 </script>
