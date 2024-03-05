@@ -4,7 +4,8 @@ import {onMounted, reactive, ref} from 'vue'
 import {RouterLink} from 'vue-router'
 
 const localuseConfigStore = useConfigStore();
-const selectedOption = ref(3)
+const loaded = ref(false)
+const showError = ref(false)
 
 onMounted(async () => {
   try {
@@ -14,7 +15,8 @@ onMounted(async () => {
   }
 })
 const loadConfig = async () => {
-  await localuseConfigStore.loadConfig()
+  showError.value = await localuseConfigStore.loadConfig()
+  loaded.value = true
 }
 const updateConfigja = async () => {
   await localuseConfigStore.updateConfig()
@@ -29,7 +31,7 @@ const updateConfigReTry = async () => {
 <template>
 
   <div class="container-fluid">
-    <div class="row">
+    <div class="row" v-if="loaded">
       <div class="col-lg-8">
         <div class="row justify-content-center">
           <div class="col-xxl-12">
@@ -225,6 +227,10 @@ const updateConfigReTry = async () => {
           </div>
         </div>
       </div>
+    </div>
+    <div class="row" v-else>
+      <div v-if="!showError">loading</div>
+      <div v-else>unable to load config.</div>
     </div>
   </div>
 </template>

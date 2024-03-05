@@ -4,7 +4,7 @@ import toastr from 'toastr';
 
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 axios.defaults.baseURL = '/v1/';
-export const useShopStore = defineStore('config',
+export const useShopStore = defineStore('shop',
     {
         state: () => ({
             selectedOptionOpen: "open",
@@ -28,13 +28,18 @@ export const useShopStore = defineStore('config',
                         toastr.info('no data return after load');
                     }
                     const configData = returnData.data.data.config_data
+                    if(!returnData.data || !returnData.data.data)  {
+                        return false;
+                    }
                     this.selectedOption = configData.numShop
                     this.inputValues = JSON.parse(configData.arrayStop);
+                    return true;
                 } catch (error) {
                     if (error.response.statusText === 'Unauthorized') {
                         router.push({name: 'SignInPage'})
                     }
                     console.log("error case get data ",)
+                    return false;
                 }
             },
             async updateShopConfig() {

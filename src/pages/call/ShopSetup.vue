@@ -1,19 +1,13 @@
+
 <script setup>
 import {useShopStore} from '@/stores/shop'
-import {onMounted, reactive, ref} from 'vue'
+import {onMounted, ref} from 'vue'
 import {useRouter} from "vue-router/dist/vue-router";
 
 const router = useRouter();
-
-const localuseConfigStore = useShopStore();
-
-const editConfig = reactive({
-  start: '',
-  end: '',
-  newaction: ''
-})
-
-const selectedOption = ref(3)
+const localUseShopStore = useShopStore();
+const loaded = ref(false)
+const showError = ref(false)
 
 onMounted(async () => {
   try {
@@ -23,22 +17,20 @@ onMounted(async () => {
   }
 })
 const loadConfig = async () => {
-  await localuseConfigStore.loadConfig(router)
-}
-const updateConfigja = async () => {
-  await localuseConfigStore.updateConfig(editConfig)
-  loadConfig()
+  const loadNoError = await localUseShopStore.loadConfig(router)
+  if (loadNoError) loaded.value = true
+  else  showError.value = true
 }
 const updateConfig = async () => {
-  await localuseConfigStore.updateShopConfig()
+  await localUseShopStore.updateShopConfig()
+  loadConfig()
 }
 
 </script>
 
 <template>
-
   <div class="container-fluid">
-    <div class="row">
+    <div class="row" v-if="loaded">
 
       <div class="col-lg-8">
         <div class="card border-0 box-shadow border-radius-10 mb-4">
@@ -52,12 +44,12 @@ const updateConfig = async () => {
               </div>
             </div>
 
-            <div v-if="localuseConfigStore.selectedOptionOpen === 'open' " class="row">
+            <div v-if="localUseShopStore.selectedOptionOpen === 'open' " class="row">
               <div class="col-lg-12">
                 <div class="form-group mb-4">
                   <label class="label">Select Number of Shop Used for this Node.</label>
                   <select
-                      v-model="localuseConfigStore.selectedOption"
+                      v-model="localUseShopStore.selectedOption"
                       class="form-select form-control"
                       aria-label="Default select example"
                   >
@@ -71,14 +63,14 @@ const updateConfig = async () => {
               </div>
 
 
-              <div class="col-lg-12" v-for="n in localuseConfigStore.numberOfInputs" :key="n">
+              <div class="col-lg-12" v-for="n in localUseShopStore.numberOfInputs" :key="n">
                 <div class="form-group mb-0">
                   <label class="label">Shop Name : {{ n + 1 }}</label>
                   <input
                       type="text"
                       class="form-control"
                       placeholder="enter shop name here"
-                      v-model="localuseConfigStore.inputValues[n]"
+                      v-model="localUseShopStore.inputValues[n]"
                   />
                 </div>
               </div>
@@ -93,6 +85,10 @@ const updateConfig = async () => {
           </div>
         </div>
       </div>
+    </div>
+    <div class="row" v-else>
+      <div v-if="!showError">loading</div>
+      <div v-else>unable to load config.</div>
     </div>
   </div>
 </template>

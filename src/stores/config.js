@@ -27,6 +27,10 @@ export const useConfigStore = defineStore('config',
                     const returnData = await axios.get(`/config/webhook`)
                     if (!returnData.data.data.config_data) {
                         toastr.info('no data return after load');
+                        return false;
+                    }
+                    if(!returnData.data || !returnData.data.data)  {
+                        return false;
                     }
                     const configData = returnData.data.data.config_data
 
@@ -46,6 +50,7 @@ export const useConfigStore = defineStore('config',
                     }
                 } catch (error) {
                     console.log("error case get data ", error)
+                    return false
                 }
             },
             async updateConfig() {
