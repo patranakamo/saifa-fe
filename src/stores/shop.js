@@ -1,9 +1,6 @@
 import {defineStore} from 'pinia'
-import axios from 'axios';
+import axios from '../utils/axiosConfig';
 import toastr from 'toastr';
-
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-axios.defaults.baseURL = '/v1/';
 export const useShopStore = defineStore('shop',
     {
         state: () => ({

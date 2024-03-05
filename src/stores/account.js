@@ -1,11 +1,6 @@
 import {defineStore} from 'pinia'
-import axios from 'axios';
+import axios from '../utils/axiosConfig';
 import toastr from 'toastr';
-import al from "bootstrap-vue-next";
-
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-axios.defaults.baseURL = '/v1/';
-
 export const useAccountStore = defineStore('account', {
     state: () => ({
         alreadyLogin: false,
