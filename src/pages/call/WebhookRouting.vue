@@ -2,18 +2,8 @@
 import {useConfigStore} from '@/stores/config'
 import {onMounted, reactive, ref} from 'vue'
 import {RouterLink} from 'vue-router'
-import {useRouter} from "vue-router/dist/vue-router";
-
-const router = useRouter();
 
 const localuseConfigStore = useConfigStore();
-
-const editConfig = reactive({
-  start: '',
-  end: '',
-  newaction: ''
-})
-
 const selectedOption = ref(3)
 
 onMounted(async () => {
@@ -24,14 +14,10 @@ onMounted(async () => {
   }
 })
 const loadConfig = async () => {
-  await localuseConfigStore.loadConfig(router)
-  editConfig.start = localuseConfigStore.listWebHook.web_hook_url_start
-  editConfig.end = localuseConfigStore.listWebHook.web_hook_url_end
-  editConfig.newaction = localuseConfigStore.listWebHook.web_hook_url_newaction
-  editConfig.update_invoice = localuseConfigStore.listWebHook.web_hook_url_update_invoice
+  await localuseConfigStore.loadConfig()
 }
 const updateConfigja = async () => {
-  await localuseConfigStore.updateConfig(editConfig)
+  await localuseConfigStore.updateConfig()
   loadConfig()
 }
 const updateConfigReTry = async () => {
@@ -51,53 +37,87 @@ const updateConfigReTry = async () => {
               <div class="card-body p-4">
                 <h4 class="text-dark fs-18 fw-medium mb-3">Webhook URL Routing config</h4>
 
-<!--                <div class="row mb-4">-->
-<!--                  <label class="col-sm-2 col-form-label label">URL webhook: start call</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <input type="text" v-model="editConfig.start" class="form-control"-->
-<!--                           placeholder="http://localhost:3000/start-call"/>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                -->
-<!--                <div class="row mb-4">-->
-<!--                  <label class="col-sm-2 col-form-label label">URL webhook: end call</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <input-->
-<!--                        v-model="editConfig.end"-->
-<!--                        type="text"-->
-<!--                        class="form-control"-->
-<!--                        placeholder="http://localhost:3000/end-call"-->
-<!--                    />-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                -->
-<!--                <div class="row mb-4">-->
-<!--                  <label class="col-sm-2 col-form-label label">URL webhook: click start live call</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <input-->
-<!--                        v-model="editConfig.newaction"-->
-<!--                        type="text"-->
-<!--                        class="form-control"-->
-<!--                        placeholder="http://localhost:3000/new_action"-->
-<!--                    />-->
-<!--                  </div>-->
-<!--                </div>-->
+                <!--                <div class="row mb-4">-->
+                <!--                  <label class="col-sm-2 col-form-label label">URL webhook: start call</label>-->
+                <!--                  <div class="col-sm-10">-->
+                <!--                    <input type="text" v-model="editConfig.start" class="form-control"-->
+                <!--                           placeholder="http://localhost:3000/start-call"/>-->
+                <!--                  </div>-->
+                <!--                </div>-->
+                <!--                -->
+                <!--                <div class="row mb-4">-->
+                <!--                  <label class="col-sm-2 col-form-label label">URL webhook: end call</label>-->
+                <!--                  <div class="col-sm-10">-->
+                <!--                    <input-->
+                <!--                        v-model="editConfig.end"-->
+                <!--                        type="text"-->
+                <!--                        class="form-control"-->
+                <!--                        placeholder="http://localhost:3000/end-call"-->
+                <!--                    />-->
+                <!--                  </div>-->
+                <!--                </div>-->
+                <!--                -->
+                <!--                <div class="row mb-4">-->
+                <!--                  <label class="col-sm-2 col-form-label label">URL webhook: click start live call</label>-->
+                <!--                  <div class="col-sm-10">-->
+                <!--                    <input-->
+                <!--                        v-model="editConfig.newaction"-->
+                <!--                        type="text"-->
+                <!--                        class="form-control"-->
+                <!--                        placeholder="http://localhost:3000/new_action"-->
+                <!--                    />-->
+                <!--                  </div>-->
+                <!--                </div>-->
 
                 <div class="row mb-4">
                   <label class="col-sm-2 col-form-label label">URL Invoice Update Status</label>
                   <div class="col-sm-10">
-                    <input type="text" v-model="editConfig.update_invoice" class="form-control"
+                    <input type="text" v-model="localuseConfigStore.webHookUrl" class="form-control"
                            placeholder="http://localhost:3000/payment_done"/>
                   </div>
                 </div>
 
-<!--                <div class="row mb-4">-->
-<!--                  <label class="col-sm-2 col-form-label label">URL BackUP Invoice Update Status</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <input type="text" v-model="editConfig.start" class="form-control"-->
-<!--                           placeholder="http://localhost:3000/payment_done"/>-->
-<!--                  </div>-->
-<!--                </div>-->
+                <!--                <div class="row mb-4">-->
+                <!--                  <label class="col-sm-2 col-form-label label">URL BackUP Invoice Update Status</label>-->
+                <!--                  <div class="col-sm-10">-->
+                <!--                    <input type="text" v-model="editConfig.start" class="form-control"-->
+                <!--                           placeholder="http://localhost:3000/payment_done"/>-->
+                <!--                  </div>-->
+                <!--                </div>-->
+
+                <div class="row mb-4">
+                  <label class="col-sm-2 col-form-label label">Auth Webhook option</label>
+                  <div class="col-sm-10">
+                    <select v-model="localuseConfigStore.authOption" class="form-select form-control">
+                      <option value="close">Webhook No Auth</option>
+                      <option value="bearer">Webhook used normal Authorization (Bearer)</option>
+                      <option value="customized">Webhook used customized api header key or token</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div v-if="localuseConfigStore.authOption === 'bearer'" class="row mb-4">
+                  <label class="col-sm-2 col-form-label label">Authorization (Bearer)</label>
+                  <div class="col-sm-10">
+                    <input type="text" v-model="localuseConfigStore.bearer" class="form-control"
+                           placeholder="add you Bearer token here for webhook call update data"/>
+                  </div>
+                </div>
+
+                <div v-if="localuseConfigStore.authOption === 'customized'" class="row mb-4">
+                  <label class="col-sm-2 col-form-label label">Header Api Key</label>
+                  <div class="col-sm-10">
+                    <input type="text" v-model="localuseConfigStore.header_key" class="form-control"
+                           placeholder="add you Bearer token here for webhook call update data"/>
+                  </div>
+                </div>
+                <div v-if="localuseConfigStore.authOption === 'customized'" class="row mb-4">
+                  <label class="col-sm-2 col-form-label label">Api or token key for auth webhook</label>
+                  <div class="col-sm-10">
+                    <input type="text" v-model="localuseConfigStore.api_key" class="form-control"
+                           placeholder="add you Bearer token here for webhook call update data"/>
+                  </div>
+                </div>
 
                 <div class="row mb-4">
                   <label class="col-sm-2 col-form-label label">Internal note:</label>
@@ -107,6 +127,7 @@ const updateConfigReTry = async () => {
               placeholder="this url is node js app run on same server port 3000"
               cols="30"
               rows="10"
+              v-model="localuseConfigStore.internal_note"
           ></textarea>
                   </div>
                 </div>
@@ -208,7 +229,7 @@ const updateConfigReTry = async () => {
   </div>
 </template>
 <style scoped>
-.form-control{
+.form-control {
   color: #1b1f22;
 }
 </style>

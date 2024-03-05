@@ -44,9 +44,9 @@
         <div class="card-body p-4">
           <div class="d-flex">
             <div class="flex-grow-1 me-3">
-              <h3 class="fw-medium fs-18">WebHookEvent: 600</h3>
+              <h3 class="fw-medium fs-18">WebHookEvent: {{webHookData.totalSend}}</h3>
               <span class="text-body">Fail Event</span>
-              <h1 class="fw-medium fs-30 mb-3">75</h1>
+              <h1 class="fw-medium fs-30 mb-3">{{webHookData.totalSendFail}}</h1>
               <div
                 class="progress rounded-0 mb-0 progress-width"
                 role="progressbar"
@@ -58,11 +58,11 @@
               >
                 <div
                   class="progress-bar bg-success rounded-0"
-                  style="width: 08%; height: 10px"
+                  :style="`width: ${webHookData.percentDone}%; height: 10px`"
                 ></div>
               </div>
               <p class="fs-12 text-dark lh-1 mt-2">
-                <span class="text-danger">08%</span> is waiting for processing
+                <span class="text-danger">{{100-webHookData.percentDone}}%</span> of webhook is failed to update.
               </p>
             </div>
             <div class="flex-shrink-0">
@@ -172,6 +172,7 @@ import { defineProps } from 'vue';
 // Define your props
 const props = defineProps({
   invoiceData:Object,
+  webHookData:Object
 });
 </script>
 

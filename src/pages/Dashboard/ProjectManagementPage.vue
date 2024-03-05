@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="inner-main-content">
-      <ProjectProgress :invoiceData="invoiceData"/>
+      <ProjectProgress :invoiceData="invoiceData" :webHookData="webHookData"/>
 
       <div class="revenue-progress-roadmap-area">
         <div class="row">
@@ -60,29 +60,24 @@
 </template>
 
 <script setup>
-import {usedInvoiceStore} from '@/stores/invoice'
+import {usedDashboardStore} from '@/stores/dashboard'
 import {onMounted, ref} from "vue";
 import ProjectProgress from "../../components/Dashboard/ProjectManagement/ProgressConnection.vue";
 import ProjectProgressChart from "../../components/Dashboard/ProjectManagement/ProjectProgressChart.vue";
 import MainFooter from "../../components/Layouts/MainFooter.vue";
 
-const localInvoiceStore = usedInvoiceStore()
+const localDashboardStore = usedDashboardStore()
 
-// const totalInvoice = ref(0)
-// const totalActiveInvoice = ref(0)
-// const percentInvoiceDone = ref(100)
-// const successCount = ref(0)
-// const percentInvoiceSuccess = ref(0)
-// const percentInvoiceFail = ref(0)
 const invoiceData = ref({})
+const webHookData = ref({})
 
 const loadData = async () => {
-  await localInvoiceStore.loadInvoices(10, 1)
-  const totalInvoice = localInvoiceStore.total_count;
-  const totalInvoiceActive = localInvoiceStore.total_count_active;
+  await localDashboardStore.loadDashboard()
+  const totalInvoice = localDashboardStore.invoice_count.count;
+  const totalInvoiceActive = localDashboardStore.invoice_count.active_count;
   const totalInvoiceDone = totalInvoice - totalInvoiceActive;
 
-  const totalInvoiceDoneSuccess = localInvoiceStore.total_count_success;
+  const totalInvoiceDoneSuccess = localDashboardStore.invoice_count.success_count;
   const totalInvoiceDoneFail = totalInvoiceDone - totalInvoiceDoneSuccess;
 
   let percentInvoiceDone = 100
@@ -94,10 +89,10 @@ const loadData = async () => {
     percentInvoiceDone = Math.round(100 - (totalInvoiceActive / totalInvoice) * 100);
   }
   if (totalInvoiceDoneSuccess > 0) {
-    percentInvoiceDoneSuccess = Math.round(  (totalInvoiceDoneSuccess / totalInvoice) * 100);
+    percentInvoiceDoneSuccess = Math.round((totalInvoiceDoneSuccess / totalInvoice) * 100);
   }
   if (totalInvoiceDoneFail > 0) {
-    percentInvoiceDoneFail = Math.round( (totalInvoiceDoneFail / totalInvoice) * 100);
+    percentInvoiceDoneFail = Math.round((totalInvoiceDoneFail / totalInvoice) * 100);
   }
   percentInvoiceNoDone = percentInvoiceNoDone - (percentInvoiceDoneSuccess + percentInvoiceDoneFail)
 
@@ -105,10 +100,19 @@ const loadData = async () => {
     "totalInvoice": totalInvoice,
     "totalActiveInvoice": totalInvoiceActive,
     "totalInvoiceDone": totalInvoiceDone,
-    "percentInvoiceDoneSuccess":percentInvoiceDoneSuccess,
-    "percentInvoiceDoneFail":percentInvoiceDoneFail,
-    "percentInvoiceNoDone":percentInvoiceNoDone,
-    "percentInvoiceDone":percentInvoiceDone
+    "percentInvoiceDoneSuccess": percentInvoiceDoneSuccess,
+    "percentInvoiceDoneFail": percentInvoiceDoneFail,
+    "percentInvoiceNoDone": percentInvoiceNoDone,
+    "percentInvoiceDone": percentInvoiceDone
+  }
+
+  const allSend = localDashboardStore.webhook_count.all_send;
+  const failSend = localDashboardStore.webhook_count.fail_send;
+  const percentDone = 100 - Math.round(((failSend / allSend) * 100))
+  webHookData.value = {
+    "totalSend": allSend,
+    "totalSendFail": failSend,
+    "percentDone": percentDone
   }
 }
 
