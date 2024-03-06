@@ -7,6 +7,8 @@ const localuseConfigStore = useConfigStore();
 const loaded = ref(false)
 const showError = ref(false)
 
+const selectedOptionOpen = ref('close')
+
 onMounted(async () => {
   try {
     await loadConfig()
@@ -17,13 +19,14 @@ onMounted(async () => {
 const loadConfig = async () => {
   showError.value = await localuseConfigStore.loadConfig()
   loaded.value = true
+  selectedOptionOpen.value = localuseConfigStore.selectedOptionOpen
 }
 const updateConfigja = async () => {
   await localuseConfigStore.updateConfig()
   loadConfig()
 }
 const updateConfigReTry = async () => {
-  await localuseConfigStore.updateConfigRetryTime()
+  await localuseConfigStore.updateConfigRetryTime(selectedOptionOpen.value)
 }
 
 </script>
@@ -137,7 +140,7 @@ const updateConfigReTry = async () => {
                   <label class="col-sm-2 col-form-label label"></label>
                   <div class="col-sm-10">
                     <div class="form-group mb-0 d-flex">
-                      <button @click="updateConfigja()" class="default-btn">Save</button>
+                      <button @click="updateConfigja()" class="default-btn">Save Webhook basic config</button>
                       <RouterLink to="/">
                         <button class="default-btn border-btn ms-3">
                           Cancel
@@ -164,7 +167,7 @@ const updateConfigReTry = async () => {
                     name="flexRadioDefault"
                     id="flexRadioDefault1"
                     value="open"
-                    v-model="localuseConfigStore.selectedOptionOpen"
+                    v-model=selectedOptionOpen
                 />
                 <label class="form-check-label" for="flexRadioDefault1">
                   Enable Retry
@@ -177,7 +180,7 @@ const updateConfigReTry = async () => {
                     name="flexRadioDefault"
                     id="flexRadioDefault2"
                     value="close"
-                    v-model="localuseConfigStore.selectedOptionOpen"
+                    v-model=selectedOptionOpen
                 />
                 <label class="form-check-label" for="flexRadioDefault2">
                   Disable Retry
@@ -185,7 +188,7 @@ const updateConfigReTry = async () => {
               </div>
             </div>
 
-            <div v-if="localuseConfigStore.selectedOptionOpen === 'open' " class="row">
+            <div v-if="selectedOptionOpen === 'open' " class="row">
               <div class="col-lg-12">
                 <div class="form-group mb-4">
                   <label class="label">Select Number of Retry</label>
@@ -217,11 +220,10 @@ const updateConfigReTry = async () => {
                 </div>
               </div>
 
-
             </div>
             <a href="#">
               <div class="col-lg-12" style="margin-top:20px">
-                <button @click="updateConfigReTry()" class="default-btn">Update</button>
+                <button @click="updateConfigReTry()" class="default-btn">Save Retry Config</button>
               </div>
             </a>
           </div>

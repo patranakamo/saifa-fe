@@ -1,6 +1,7 @@
 import {defineStore} from 'pinia'
 import axios from '../utils/axiosConfig';
 import toastr from 'toastr';
+
 export const useConfigStore = defineStore('config',
     {
         state: () => ({
@@ -8,7 +9,7 @@ export const useConfigStore = defineStore('config',
             header_key: "",
             api_key: "",
             internal_note: "",
-            selectedOptionOpen: "open",
+            selectedOptionOpen: "close",
             authOption: "close",
             selectedOption: 4,
             inputValues: [10, 20, 30, 40, 50, 60],
@@ -26,12 +27,14 @@ export const useConfigStore = defineStore('config',
                         toastr.info('no data return after load');
                         return false;
                     }
-                    if(!returnData.data || !returnData.data.data)  {
+                    if (!returnData.data || !returnData.data.data) {
                         return false;
                     }
                     const configData = returnData.data.data.config_data
+                    if (configData.status) {
+                        this.selectedOptionOpen = configData.status
+                    }
 
-                    this.selectedOptionOpen = configData.status
                     if (configData.auth_option) {
                         this.authOption = configData.auth_option
                         this.bearer = configData.bearer
@@ -76,12 +79,12 @@ export const useConfigStore = defineStore('config',
                     }
                 }
             },
-            async updateConfigRetryTime() {
+            async updateConfigRetryTime(status) {
                 try {
                     const updateData = {
                         numRetry: this.selectedOption,
                         arrayRetry: this.inputValues,
-                        status: this.selectedOptionOpen
+                        status: status
                     }
                     const returnData = await axios.post(`/config/retry/save`, updateData)
                     console.log(returnData.data)
