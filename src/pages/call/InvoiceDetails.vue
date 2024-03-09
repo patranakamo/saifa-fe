@@ -80,7 +80,9 @@
 <!--                    <input class="form-control" type="number"> {{ currency }}-->
 <!--                  </span>-->
                   <div class="right-details input-container">
-                    <input v-model="amount" type="number" id="numberInput" placeholder="Enter Amount">
+                    <input
+                           v-model="amount" @input="removeLeadingZeros()"
+                           type="number" id="numberInput" placeholder="Enter Amount">
                     <span class="currency-label">{{ currency }}</span>
                   </div>
                 </li>
@@ -89,10 +91,10 @@
               <div class="col-sm-10">
                 <div class="form-group mb-0 d-flex">
 
-                  <button @click="addNewInvoice()" class="default-btn">Save</button>
+                  <button v-if="canClickSave" @click="addNewInvoice()" class="default-btn">Save</button>
 
                   <router-link :to="{name:'InvoiceList' }">
-                    <button class="default-btn border-btn ms-3"> Cancel</button>
+                    <button class="default-btn border-btn ms-3"> Back</button>
                   </router-link>
                 </div>
               </div>
@@ -166,6 +168,7 @@ const amount = ref(0)
 const route = useRoute()
 const newMode = ref(false)
 const shopName = ref('')
+const canClickSave = ref(true)
 
 onMounted(async () => {
   if (route.params.id && route.params.id === 'new') {
@@ -184,7 +187,15 @@ onMounted(async () => {
   }
 })
 
+const removeLeadingZeros = async () => {
+  amount.value = String(amount.value).replace(/^0+/, ''); // Remove leading zeros
+}
 const addNewInvoice = async () => {
+  canClickSave.value = false
+  setTimeout(() => {
+    canClickSave.value = true
+  }, 3000);
+
   let newInvoiceId = await localInvoiceStore.addNewInvoice(shopName.value,currency.value,amount.value)
   if (newInvoiceId && newInvoiceId.length > 0) {
     toastr.success('add new invoice success!')
@@ -194,8 +205,8 @@ const addNewInvoice = async () => {
     await generateQRCode(stringData)
 
     // setTimeout(() => {
-    //   router.push({name: 'TokenList'});
-    // }, 2000);
+    //   router.push({name: 'InvoiceList'});
+    // }, 10000);
 
   }
 }
