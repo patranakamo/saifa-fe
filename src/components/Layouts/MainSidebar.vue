@@ -71,6 +71,13 @@
           </router-link>
         </li>
 
+        <li class="menu-item">
+          <a target="_blank" href="https://tippin.me/@PNakamo88607" class="menu-link">
+            <vue-feather type="dollar-sign" class="menu-icon tf-icons"></vue-feather>
+            <span class="title">Donate</span>
+          </a>
+        </li>
+
         <div class="small head-menu">
           <div class="menu-header-text fs-14 text-white">Setup</div>
         </div>
