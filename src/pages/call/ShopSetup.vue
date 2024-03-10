@@ -35,7 +35,7 @@ const updateConfig = async () => {
       <div class="col-lg-8">
         <div class="card border-0 box-shadow border-radius-10 mb-4">
           <div class="card-body p-4">
-            <h3 class="fw-medium fs-18 mb-4">Shop Name:</h3>
+            <h3 class="fw-medium fs-18 mb-4">Shop Name Management:</h3>
             <div style="padding: 10px; padding-bottom: 20px">
               This shop serves as a label for all payments made to this lnd Node. This way, you can easily track which payment corresponds to which shop.
               After adding the list of shop names, they will appear as options for shops when creating a new invoice, and will be included in the invoice details once the invoice is generated.

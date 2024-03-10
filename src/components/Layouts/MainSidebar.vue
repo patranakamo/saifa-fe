@@ -133,4 +133,7 @@ const localAccountStore = useAccountStore()
 .head-menu{
   padding: 10px;padding-bottom: 20px;
 }
+.collapsed .head-menu {
+  margin-left: -10px;
+}
 </style>

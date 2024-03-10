@@ -1,3 +1,7 @@
+.main-content.js-container.collapsed .sidebar-area{
+  z-index: 4 !important;
+}
+
 .menu-inner {
     display: flex;
     align-items: flex-start;

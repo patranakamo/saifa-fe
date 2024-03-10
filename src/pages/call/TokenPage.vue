@@ -16,7 +16,31 @@
               + Add New Token
             </button>
           </div>
+          <div style="padding: 10px; padding-bottom: 20px">
+            <div class="pad10">
+              <div>This page is designed for setting up tokens. These tokens are necessary if your application needs to
+                retrieve data from Saifa instantly, without waiting for a webhook.
+              </div>
+              <div> You can use this data to generate your
+                own reports.
+              </div>
+            </div>
 
+            <div class="pad10">
+              <div class="fw-medium ">How to Use:</div>
+              <div>Add a new token and ensure it is active, not disabled.</div>
+              <div>Use this active token to call the Saifa API (GET method) to retrieve data.</div>
+            </div>
+
+            <div class="pad10">
+              <div class="fw-medium">Additional Information:</div>
+              <div>For more details, visit the Saifa GitHub project page. If you have any questions, feel free to open
+                an
+                issue there.
+                more info you can open saifa github project and open a question on that.
+              </div>
+            </div>
+          </div>
 
           <div class="all-table scroll-bar h-660">
             <table class="table align-middle mb-0">
@@ -149,6 +173,10 @@ const removeItem = async (token) => {
 
 </script>
 <style scoped>
+.pad10 {
+  padding: 10px;
+}
+
 /*.text-body {*/
 /*  padding-left: 30px !important;*/
 /*}*/
