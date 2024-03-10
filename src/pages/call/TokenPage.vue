@@ -29,7 +29,8 @@
             <div class="pad10">
               <div class="fw-medium ">How to Use:</div>
               <div>Add a new token and ensure it is active, not disabled.</div>
-              <div>Use this active token to call the Saifa API (GET method) to retrieve data.</div>
+              <div>Click on (click for copy CURL</div>
+              <div>Paste the curl that you just copy in some terminal app. this is the way to Use this active token to call the Saifa API (GET method) to retrieve data.</div>
             </div>
 
             <div class="pad10">
@@ -48,6 +49,9 @@
               <tr>
                 <th class="text-dark fw-medium pt-2 pb-2 fs-14 ps-0" scope="col">
                   Token
+                </th>
+                <th class="text-dark fw-medium pt-2 pb-2 fs-14" scope="col">
+                  CURL command
                 </th>
                 <th class="text-dark fw-medium pt-2 pb-2 fs-14" scope="col">
                   Last Used
@@ -76,6 +80,10 @@
                       {{ row.token }}
                     </router-link>
                   </vue>
+                </td>
+
+                <td>
+                  <a href="#" @click="copyCurlCommand(row.token)">click for copy CURL</a>
                 </td>
 
                 <td class="" v-if="!row.last_used || row.last_used < 1">
@@ -143,6 +151,23 @@ onMounted(async () => {
     'allowSourceNum': 0,
   }
 })
+const copyTextToClipboard = async (text) => {
+  try {
+    await navigator.clipboard.writeText(text);
+    toastr.success('CURL command copied to clipboard!')
+  } catch (err) {
+    console.error('error in : copyTextToClipboard ', err);
+  }
+};
+const getDomainWithoutPort = (url) => {
+  const urlObject = new URL(url);
+  return urlObject.hostname;
+};
+const copyCurlCommand = (token) => {
+  const currentDomain = getDomainWithoutPort(window.location.href);
+  const curlCommand = `curl -H "Authorization: Bearer ${token}" "${currentDomain}:9988/v1/invoices?mode=desc&page=1&perPage=10&search=" `;
+  copyTextToClipboard(curlCommand);
+};
 
 const addNewToken = async () => {
   const token = await tokenStore.addNewToken()
