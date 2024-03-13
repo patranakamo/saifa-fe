@@ -69,6 +69,20 @@
                     </span>
                 </li>
 
+                <li class="li-select d-flex justify-content-between align-items-center mb-4">
+                  <span class="topic_select text-body fs-14">CURL full command for used this token: </span>
+                  <span class="right-details">
+                    {{curl}}
+                  </span>>
+                </li>
+
+                <li class="li-select d-flex justify-content-between align-items-center mb-4">
+                  <span class="topic_select text-body fs-14">copy curl by this btn: </span>
+                  <span class="right-details">
+                    <button @click="copyCurlCommand()" class="default-btn border-btn ms-3" >Copy CURL</button>
+                  </span>
+                </li>
+
                 <div v-if="tokenStore.tokenSelect.allowSourceNum > 0" style="padding: 10px">
                   <div class="col-lg-12" v-for="n in tokenStore.numberOfInputs" :key="n">
                     <div class="form-group mb-0">
@@ -131,13 +145,25 @@ import toastr from "toastr";
 const route = useRoute()
 const router = useRouter();
 const token = ref('new')
+const curl = ref('')
 
 onMounted(async () => {
   if (route.params.id) {
     token.value = route.params.id
     await tokenStore.loadToken(route.params.id)
+    const urlObject = new URL(window.location.href);
+    const currentDomain = urlObject.hostname;
+    curl.value = `curl -H "Authorization: Bearer ${token.value}" "${currentDomain}:9988/v1/invoices?mode=desc&page=1&perPage=10&search=" `;
   }
 })
+const copyCurlCommand = async () => {
+  try {
+    await navigator.clipboard.writeText(curl.value);
+    toastr.success('CURL command copied to clipboard!')
+  } catch (err) {
+    console.error('error in : copyTextToClipboard ', err);
+  }
+};
 
 const updateToken = async () => {
   if (await tokenStore.updateToken(token.value)) {
