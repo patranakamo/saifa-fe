@@ -153,7 +153,21 @@ onMounted(async () => {
 })
 const copyTextToClipboard = async (text) => {
   try {
-    await navigator.clipboard.writeText(text);
+    //await navigator.clipboard.writeText(curl.value);
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "absolute";
+    textArea.style.left = "-999999px";
+    document.body.prepend(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+    } catch (error) {
+      console.error(error);
+    } finally {
+      textArea.remove();
+    }
+
     toastr.success('CURL command copied to clipboard!')
   } catch (err) {
     console.error('error in : copyTextToClipboard ', err);

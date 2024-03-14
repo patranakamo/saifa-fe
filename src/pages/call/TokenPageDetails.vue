@@ -158,7 +158,22 @@ onMounted(async () => {
 })
 const copyCurlCommand = async () => {
   try {
-    await navigator.clipboard.writeText(curl.value);
+    //await navigator.clipboard.writeText(curl.value);
+    // Use the 'out of viewport hidden text area' trick
+    const textArea = document.createElement("textarea");
+    textArea.value = curl.value;
+    textArea.style.position = "absolute";
+    textArea.style.left = "-999999px";
+    document.body.prepend(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+    } catch (error) {
+      console.error(error);
+    } finally {
+      textArea.remove();
+    }
+
     toastr.success('CURL command copied to clipboard!')
   } catch (err) {
     console.error('error in : copyTextToClipboard ', err);
